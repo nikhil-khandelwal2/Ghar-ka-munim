@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_signup_shpkpr1"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:id="@+id/btn_frag_shpkpr_strname"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:drawableRight="@mipmap/store"
+            android:focusableInTouchMode="true"
+            android:hint="Store Name"
+            android:textSize="12dp"
+            android:layout_gravity="center"
+            />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_below="@id/card_signup_shpkpr1"
+        android:id="@+id/card_signup_shpkpr2"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="46dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp">
+
+        <EditText
+            android:id="@+id/btn_frag_shpkpr_email"
+            android:layout_width="240dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:drawableRight="@mipmap/email"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            android:textSize="12dp" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_below="@id/card_signup_shpkpr2"
+        android:id="@+id/card_signup_shpkpr3"
+        android:layout_centerHorizontal="true"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="-45dp"
+        >
+
+        <EditText
+            android:id="@+id/btn_frag_shpkpr_mobile"
+            android:layout_gravity="center"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:drawableRight="@mipmap/cellphone"
+            android:hint="Mobile Number"
+            android:inputType="phone"
+            android:background="#fff"
+            android:textSize="12dp" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_signup_shpkpr4"
+        android:layout_below="@id/card_signup_shpkpr3"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp">
+
+        <EditText
+            android:id="@+id/btn_frag_shpkpr_straddress"
+            android:layout_width="240dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:drawableRight="@mipmap/home"
+            android:hint="Store Address"
+            android:inputType="textPostalAddress"
+            android:textSize="12dp" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_below="@id/card_signup_shpkpr4"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_centerHorizontal="true">
+
+
+        <EditText
+            android:id="@+id/btn_frag_shpkpr_gst"
+            android:layout_width="240dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:hint="GST Number / Registration Id"
+            android:inputType="textPostalAddress"
+            android:textSize="12dp"
+            />
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
