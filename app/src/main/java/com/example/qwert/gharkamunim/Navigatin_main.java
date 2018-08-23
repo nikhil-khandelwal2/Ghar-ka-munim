@@ -1,8 +1,13 @@
 package com.example.qwert.gharkamunim;
 
 import android.os.Bundle;
+import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.DividerItemDecoration;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,17 +25,24 @@ public class Navigatin_main extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigatin_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_navigation);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+        getSupportActionBar().setTitle("Ghar Ka Munim");
+
+
+        //to load fragment dashboard as soon as navigation drawer is opened
+        Fragment fragment=null;
+        final Navigation_fragment_dash navigation_fragment_dash_ =new Navigation_fragment_dash();
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        FragmentTransaction ft=fragmentManager.beginTransaction();
+        ft.replace(R.id.navigation_fragment,navigation_fragment_dash_);
+        ft.commit();
+
+
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,6 +52,11 @@ public class Navigatin_main extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //to separate items by a line
+        NavigationMenuView navMenuView = (NavigationMenuView) navigationView.getChildAt(0);
+        navMenuView.addItemDecoration(new DividerItemDecoration(Navigatin_main.this,DividerItemDecoration.VERTICAL));
+
     }
 
     @Override
@@ -57,6 +74,8 @@ public class Navigatin_main extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigatin_main, menu);
         return true;
+
+
     }
 
     @Override
@@ -71,8 +90,11 @@ public class Navigatin_main extends AppCompatActivity
             return true;
         }
 
+
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -80,18 +102,45 @@ public class Navigatin_main extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        Fragment fragment=null;
 
-        } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        if (id == R.id.navigation_dash) {
 
+            fragment=new Navigation_fragment_dash();
+            getSupportActionBar().setTitle("Dashboard");
+
+
+        } else if (id == R.id.navigation_profile) {
+
+            fragment=new Profile_fragment_navi();
+            getSupportActionBar().setTitle("Profile");
+
+        } else if (id == R.id.navigation_Expense_Category) {
+
+        } else if (id == R.id.navigation_transaction_history) {
+
+        } else if (id == R.id.navigation_import_export) {
+
+        } else if (id == R.id.navigation_backup) {
+
+        }
+        else if (id == R.id.navigation_trash) {
+
+        }
+        else if (id == R.id.navigation_refer_earn) {
+
+        }
+
+
+        if (fragment!=null)
+        {
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            FragmentTransaction ft=fragmentManager.beginTransaction();
+            ft.replace(R.id.navigation_fragment,fragment);
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -28,7 +28,7 @@ public class Signup extends AppCompatActivity {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Signup.this,Navigation_main.class);
+                Intent i=new Intent(Signup.this,Navigatin_main.class);
                 startActivity(i);
             }
         });
